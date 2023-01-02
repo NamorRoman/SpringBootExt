@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:form="http://www.w3.org/1999/xhtml">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+
+<h1>Users List</h1>
+<body>
+<table style="width: 500px">
+    <tr style="text-align: left; vertical-align: middle">
+        <th scope="col">id</th>
+        <th scope="col">name</th>
+        <th scope="col">last_name</th>
+        <th scope="col">age</th>
+        <th scope="col"></th>
+    </tr>
+    <tr th:each="user : ${users}">
+        <td th:text="${user.getId()}"/>
+        <td th:text="${user.getName()}"/>
+        <td th:text="${user.getLastName()}"/>
+        <td th:text="${user.getAge()}"/>
+        <td>
+            <a th:href="@{/users/{id}/editUser(id=${user.getId()})}"
+               th:text="'Edit user'"/></a>
+        </td>
+        <td>
+        </td>
+</table>
+
+<br>
+<input type="button" value="Add new user"
+       onclick="window.location.href = 'users/newUser'"/>
+<body>
+
+
+<!--<td>-->
+<!--    <a th:href="@{/users/{id}(id=${user.getId()})}"-->
+<!--       th:text="${user.getId()}"/></a>-->
+<!--</td>-->
+
+
+
