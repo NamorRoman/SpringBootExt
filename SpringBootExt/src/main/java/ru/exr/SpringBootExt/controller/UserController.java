@@ -10,6 +10,7 @@ import ru.exr.SpringBootExt.service.UserService;
 public class UserController {
 
     private UserService userService;
+
     public UserController(UserService userService) {
         this.userService = userService;
     }
@@ -49,14 +50,14 @@ public class UserController {
     }
 
     @GetMapping("users/{id}/editUser")
-    public String editUser(Model model,@PathVariable("id") Long id) {
+    public String editUser(Model model, @PathVariable("id") Long id) {
         model.addAttribute("user", userService.getUser(id));
         return "edit";
     }
 
     @PatchMapping("users/{id}")
     public String updateUser(@ModelAttribute("user") User user, @PathVariable("id") Long id) {
-        userService.updateUser(id, user);
+        userService.updateUser(user);
         return "redirect:/users";
     }
 

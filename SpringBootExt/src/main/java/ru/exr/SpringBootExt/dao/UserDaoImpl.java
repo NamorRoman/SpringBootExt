@@ -2,6 +2,7 @@ package ru.exr.SpringBootExt.dao;
 
 //import jakarta.persistence.EntityManager;
 //import jakarta.persistence.PersistenceContext;
+
 import org.springframework.stereotype.Repository;
 import ru.exr.SpringBootExt.model.User;
 
@@ -22,7 +23,7 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public User getUser(Long id) {
-        return entityManager.find(User.class,id);
+        return entityManager.find(User.class, id);
     }
 
     @Override
